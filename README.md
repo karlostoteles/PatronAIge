@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# PatronAIge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Finance Your AI Workforce. Pay With Upside.**
 
-Currently, two official plugins are available:
+PatronAIge is a high-signal compute financing platform that bridges the gap between frontier AI model costs and high-leverage builders. We provide the "payroll" for your AI workforce in exchange for technical alignment and revenue participation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## React Compiler
+- **Dual-Path Onboarding**: Specialized flows for Builders (Founders) and Patrons (Investors).
+- **Patron Terminal**: Real-time visualization of technical alpha and compute ROI.
+- **Compute-for-Upside**: A non-dilutive, non-recourse financing model tailored for the AI age.
+- **High-Trust Design**: A premium Apple x YC aesthetic designed for clarity and credibility.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19 + TypeScript
+- **Bundler**: Vite 7
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Styling**: Modern CSS with Glassmorphism and Marble textures
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Local Development
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/karlostoteles/PatronAIge.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Production Build
+
+To create a production-ready bundle:
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The output will be in the `dist/` directory.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Deployment
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Vercel (Recommended)
+
+This project is optimized for deployment on [Vercel](https://vercel.com). 
+
+1. Push your code to a GitHub repository.
+2. Connect the repository to Vercel.
+3. Vercel will auto-detect the Vite configuration.
+4. Set the build command to `npm run build` and the output directory to `dist`.
+
+*The included `vercel.json` ensures smooth SPA routing.*
+
+---
+© 2026 PatronAIge. High-Signal Compute Financing.
