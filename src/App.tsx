@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
-  Zap,
   Cpu,
   TrendingUp,
   ShieldCheck,
