@@ -37,14 +37,14 @@ export const translations: Record<Language, Record<string, string>> = {
         'risk.noEquity': 'No Equity Dilution',
         'risk.noEquityDesc': 'We don\'t take board seats or equity. Upside participation only.',
 
-        // Syndicate
-        'syndicate.title': 'The Syndicate',
-        'syndicate.titleBr': 'Infrastructure',
-        'syndicate.subtitle': "We've assembled a specialized network of Tier-1 VCs, GPU model providers, and technical angels to underwrite the next generation of AI builders.",
-        'syndicate.institutional': 'Institutional Backing',
-        'syndicate.institutionalDesc': 'Sourced from Family Offices and AI-focused Venture Funds.',
-        'syndicate.compute': 'Compute Network',
-        'syndicate.computeDesc': 'Wholesale access to H100/H200 clusters and frontier API credits.',
+        // Network
+        'syndicate.title': 'Our',
+        'syndicate.titleBr': 'Network',
+        'syndicate.subtitle': "We've brought together a tight group of VCs, GPU providers, and technical angels who actually understand what it takes to ship AI — and want to back the people doing it.",
+        'syndicate.institutional': 'Institutional Partners',
+        'syndicate.institutionalDesc': 'Family offices and AI-focused funds who think long-term.',
+        'syndicate.compute': 'Compute Partners',
+        'syndicate.computeDesc': 'Direct access to H100/H200 clusters and frontier API credits.',
 
         // Partner Note
         'partner.header': 'A NOTE FROM THE FOUNDER',
@@ -52,7 +52,7 @@ export const translations: Record<Language, Record<string, string>> = {
         'partner.highlight': 'Technical Alignment',
         'partner.quoteEnd': '. We aren\'t just your financiers; we are your compute infrastructure partners. If you don\'t scale, we don\'t win. That is the only \'Green Flag\' that matters."',
         'partner.name': 'Carlos de la Figuera',
-        'partner.role': 'Founder, PatronAIge Syndicate',
+        'partner.role': 'Founder, PatronAIge',
 
         // Partnership Structures
         'structures.title': 'Partnership Structures',
@@ -99,7 +99,7 @@ export const translations: Record<Language, Record<string, string>> = {
         'who.privatePilot': 'PRIVATE PILOT: We onboard a limited number of builders per cohort.',
 
         // Application Form
-        'apply.joinTitle': 'Join the Syndicate',
+        'apply.joinTitle': 'Get Started',
         'apply.joinSubtitle': 'Choose your path to technically-aligned growth.',
         'apply.builderCard': 'Builder',
         'apply.builderCardDesc': 'Request compute credits to scale your models in exchange for revenue share or upside.',
@@ -190,14 +190,14 @@ export const translations: Record<Language, Record<string, string>> = {
         'risk.noEquity': 'Sin Dilución de Equity',
         'risk.noEquityDesc': 'No tomamos asientos en el consejo ni equity. Solo participación en el upside.',
 
-        // Syndicate
-        'syndicate.title': 'La Infraestructura',
-        'syndicate.titleBr': 'del Sindicato',
-        'syndicate.subtitle': 'Hemos reunido una red especializada de VCs Tier-1, proveedores de GPU y ángeles técnicos para financiar la próxima generación de builders de AI.',
-        'syndicate.institutional': 'Respaldo Institucional',
-        'syndicate.institutionalDesc': 'Proveniente de Family Offices y Fondos de Venture enfocados en AI.',
-        'syndicate.compute': 'Red de Computación',
-        'syndicate.computeDesc': 'Acceso mayorista a clusters H100/H200 y créditos API de frontera.',
+        // Network
+        'syndicate.title': 'Nuestra',
+        'syndicate.titleBr': 'Red',
+        'syndicate.subtitle': 'Hemos reunido un grupo sólido de VCs, proveedores de GPU y ángeles técnicos que realmente entienden lo que significa lanzar AI — y quieren respaldar a quienes lo hacen.',
+        'syndicate.institutional': 'Socios Institucionales',
+        'syndicate.institutionalDesc': 'Family offices y fondos enfocados en AI que piensan a largo plazo.',
+        'syndicate.compute': 'Socios de Computación',
+        'syndicate.computeDesc': 'Acceso directo a clusters H100/H200 y créditos API de frontera.',
 
         // Partner Note
         'partner.header': 'UNA NOTA DEL FUNDADOR',
@@ -205,7 +205,7 @@ export const translations: Record<Language, Record<string, string>> = {
         'partner.highlight': 'Alineación Técnica',
         'partner.quoteEnd': '. No somos solo tus financiadores; somos tus socios de infraestructura de computación. Si no escalas, nosotros no ganamos. Esa es la única \'Green Flag\' que importa."',
         'partner.name': 'Carlos de la Figuera',
-        'partner.role': 'Fundador, PatronAIge Syndicate',
+        'partner.role': 'Fundador, PatronAIge',
 
         // Partnership Structures
         'structures.title': 'Estructuras de Asociación',
@@ -252,7 +252,7 @@ export const translations: Record<Language, Record<string, string>> = {
         'who.privatePilot': 'PILOTO PRIVADO: Incorporamos un número limitado de builders por cohorte.',
 
         // Application Form
-        'apply.joinTitle': 'Únete al Sindicato',
+        'apply.joinTitle': 'Empieza Aquí',
         'apply.joinSubtitle': 'Elige tu camino hacia el crecimiento técnicamente alineado.',
         'apply.builderCard': 'Builder',
         'apply.builderCardDesc': 'Solicita créditos de computación para escalar tus modelos a cambio de revenue share o upside.',
@@ -343,14 +343,14 @@ export const translations: Record<Language, Record<string, string>> = {
         'risk.noEquity': '无股权稀释',
         'risk.noEquityDesc': '我们不要求董事会席位或股权。仅参与收益。',
 
-        // Syndicate
-        'syndicate.title': '辛迪加',
-        'syndicate.titleBr': '基础设施',
-        'syndicate.subtitle': '我们组建了由顶级风投、GPU模型供应商和技术天使组成的专业网络，为下一代AI构建者提供担保。',
-        'syndicate.institutional': '机构支持',
-        'syndicate.institutionalDesc': '来自Family Office和专注AI的风险基金。',
-        'syndicate.compute': '算力网络',
-        'syndicate.computeDesc': '批发访问H100/H200集群和前沿API额度。',
+        // Network
+        'syndicate.title': '我们的',
+        'syndicate.titleBr': '网络',
+        'syndicate.subtitle': '我们汇聚了一群真正懂AI的风投、GPU提供商和技术天使——他们想要支持真正在做事的人。',
+        'syndicate.institutional': '机构合作伙伴',
+        'syndicate.institutionalDesc': '着眼长期的Family Office和AI专注基金。',
+        'syndicate.compute': '算力合作伙伴',
+        'syndicate.computeDesc': '直接访问H100/H200集群和前沿API额度。',
 
         // Partner Note
         'partner.header': '创始人寄语',
@@ -405,7 +405,7 @@ export const translations: Record<Language, Record<string, string>> = {
         'who.privatePilot': '私人试点：我们每个队列招募有限数量的构建者。',
 
         // Application Form
-        'apply.joinTitle': '加入辛迪加',
+        'apply.joinTitle': '开始',
         'apply.joinSubtitle': '选择你的技术对齐增长路径。',
         'apply.builderCard': '构建者',
         'apply.builderCardDesc': '申请算力额度来扩展你的模型，以换取收入分成或收益。',

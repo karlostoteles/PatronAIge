@@ -262,7 +262,7 @@ const SyndicateComposition: React.FC = () => {
           >
             <img
               src="/flow_of_alignment.png"
-              alt="Syndicate Flow of Alignment"
+              alt="PatronAIge Flow of Alignment"
               style={{ width: '100%', borderRadius: '16px' }}
             />
           </motion.div>
@@ -556,7 +556,7 @@ const App: React.FC = () => {
       {/* Risk Reversal HUD */}
       <RiskReversalHUD />
 
-      {/* Syndicate Composition */}
+      {/* Network Composition */}
       <SyndicateComposition />
 
       {/* Partner Note */}
