@@ -3,7 +3,7 @@ export type Language = 'en' | 'es' | 'zh';
 export const translations: Record<Language, Record<string, string>> = {
     en: {
         // Nav
-        'nav.ticker': '3 SPOTS LEFT FOR APRIL COHORT',
+        'nav.ticker': 'COHORT RUNNING NOW!',
         'nav.joinWhitelist': 'Join Whitelist',
 
         // Hero
@@ -156,7 +156,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     es: {
         // Nav
-        'nav.ticker': '3 PLAZAS RESTANTES PARA COHORTE DE ABRIL',
+        'nav.ticker': '¡COHORTE EN MARCHA!',
         'nav.joinWhitelist': 'Unirse a la Lista',
 
         // Hero
@@ -309,7 +309,7 @@ export const translations: Record<Language, Record<string, string>> = {
 
     zh: {
         // Nav
-        'nav.ticker': '四月队列仅剩3个名额',
+        'nav.ticker': '队列正在进行中！',
         'nav.joinWhitelist': '加入白名单',
 
         // Hero
