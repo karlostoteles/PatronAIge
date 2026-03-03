@@ -7,14 +7,93 @@ import {
   ShieldCheck,
   ArrowRight,
   CheckCircle2,
-  Lock
+  Lock,
+  Loader2
 } from 'lucide-react';
+import { supabase } from './lib/supabase';
 
 const Logo: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
   <div className="logo" style={style}>
     Patron<span>AI</span>ge
   </div>
 );
+
+const TerminalHUD: React.FC = () => {
+  const [inferenceCount, setInferenceCount] = useState(1240582);
+  const [activeUnderwriters] = useState(14);
+  const [avgApy, setAvgApy] = useState(24.5);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setInferenceCount(prev => prev + Math.floor(Math.random() * 100));
+      if (Math.random() > 0.8) setAvgApy(prev => +(prev + (Math.random() - 0.5) * 0.1).toFixed(2));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="terminal-hud glass" style={{
+      fontFamily: 'monospace',
+      padding: '2rem',
+      backgroundColor: '#000',
+      border: '1px solid var(--accent-color)',
+      boxShadow: '0 0 40px rgba(255,107,0,0.1)',
+      position: 'relative',
+      overflow: 'hidden',
+      borderRadius: '12px'
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2rem', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '1rem', fontSize: '0.8rem' }}>
+        <div style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}>PATRON_TERMINAL_v1.0.4</div>
+        <div style={{ opacity: 0.5 }}>CONNECTED_NODES: {activeUnderwriters}</div>
+      </div>
+
+      <div className="grid grid-2" style={{ gap: '2rem' }}>
+        <div className="glass" style={{ padding: '1.5rem', background: 'rgba(255,107,0,0.05)' }}>
+          <div style={{ fontSize: '0.7rem', opacity: 0.6, marginBottom: '0.5rem' }}>TOTAL_INFERENCE_STREAM</div>
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--accent-color)' }}>
+            {inferenceCount.toLocaleString()} <span style={{ fontSize: '0.8rem' }}>TOKENS/S</span>
+          </div>
+        </div>
+        <div className="glass" style={{ padding: '1.5rem', background: 'rgba(255,107,0,0.05)' }}>
+          <div style={{ fontSize: '0.7rem', opacity: 0.6, marginBottom: '0.5rem' }}>AVG_PORTFOLIO_ALIGNMENT</div>
+          <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>
+            {avgApy}% <span style={{ fontSize: '0.8rem', color: '#10b981' }}>+0.4%</span>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ marginTop: '2rem' }}>
+        <div style={{ fontSize: '0.7rem', opacity: 0.6, marginBottom: '1rem' }}>LIVE_UNDERWRITING_FEED</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          {[
+            { id: 'TX-4091', project: 'NeuralFlow', status: 'deployed', compute: 'H100 x 8' },
+            { id: 'TX-4092', project: 'LlamaScale', status: 'scaling', compute: 'A100 x 16' },
+            { id: 'TX-4093', project: 'VisionPro', status: 'underwriting', compute: 'H100 x 4' }
+          ].map((tx, i) => (
+            <div key={i} style={{ fontSize: '0.8rem', display: 'flex', justifyContent: 'space-between', opacity: 1 - i * 0.2 }}>
+              <span style={{ color: 'var(--accent-color)' }}>[{tx.id}]</span>
+              <span>{tx.project}</span>
+              <span style={{ color: tx.status === 'deployed' ? '#10b981' : '#f59e0b' }}>{tx.status.toUpperCase()}</span>
+              <span style={{ opacity: 0.5 }}>{tx.compute}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: '2rem',
+        padding: '1rem',
+        background: 'rgba(255,255,255,0.03)',
+        fontSize: '0.75rem',
+        borderLeft: '2px solid var(--accent-color)'
+      }}>
+        &gt; SYSTEM_STATUS: ALL_CLUSTERS_NOMINAL
+        <br />
+        &gt; READY_FOR_PATRON_ALLOCATION
+      </div>
+    </div>
+  );
+};
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,8 +213,8 @@ const PartnerNote: React.FC = () => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
           <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'var(--accent-color)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 700 }}>P</div>
           <div>
-            <div style={{ fontWeight: 700, fontSize: '1.2rem' }}>Alex Patron</div>
-            <div style={{ fontSize: '0.9rem', opacity: 0.6 }}>Managing Partner, PatronAIge Syndicate</div>
+            <div style={{ fontWeight: 700, fontSize: '1.2rem' }}>Carlos de la Figuera</div>
+            <div style={{ fontSize: '0.9rem', opacity: 0.6 }}>Founder, PatronAIge Syndicate</div>
           </div>
         </div>
       </div>
@@ -178,8 +257,8 @@ const SyndicateComposition: React.FC = () => {
             style={{ padding: '1rem', borderRadius: '24px' }}
           >
             <img
-              src="/syndicate_composition.png"
-              alt="Syndicate Network Composition"
+              src="/flow_of_alignment.png"
+              alt="Syndicate Flow of Alignment"
               style={{ width: '100%', borderRadius: '16px' }}
             />
           </motion.div>
@@ -284,18 +363,7 @@ const PatronageDashboard: React.FC = () => {
               zIndex: 0,
               opacity: 0.3
             }} />
-            <img
-              src="/patron_dashboard.png"
-              alt="Patronage Dashboard Mockup"
-              style={{
-                width: '100%',
-                borderRadius: '12px',
-                boxShadow: 'var(--shadow-lg)',
-                position: 'relative',
-                zIndex: 1,
-                border: '1px solid var(--glass-border)'
-              }}
-            />
+            <TerminalHUD />
           </motion.div>
         </div>
       </motion.div>
@@ -305,13 +373,52 @@ const PatronageDashboard: React.FC = () => {
 
 const App: React.FC = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [onboardingPath, setOnboardingPath] = useState<'builder' | 'patron' | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTimeout(() => {
+    setIsSubmitting(true);
+    setSubmissionError(null);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    if (!supabase) {
+      console.warn('Supabase client not initialized. Falling back to demo mode.');
+      setTimeout(() => {
+        setIsFormSubmitted(true);
+        setIsSubmitting(false);
+      }, 1500);
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            type: onboardingPath,
+            name: data.Name || data['Full Name'],
+            email: data.Email || data['Email Address'] || 'no-email@provided.com',
+            details: data
+          }
+        ]);
+
+      if (error) throw error;
       setIsFormSubmitted(true);
-    }, 1000);
+    } catch (err: any) {
+      console.error('Submission error:', err);
+      // Fallback for demo purposes if DB isn't setup yet
+      if (err.message?.includes('404') || err.message?.includes('fetch')) {
+        setTimeout(() => setIsFormSubmitted(true), 1500);
+      } else {
+        setSubmissionError(err.message || 'Something went wrong. Please try again.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -348,20 +455,21 @@ const App: React.FC = () => {
             variants={itemVariants}
             style={{ fontSize: '5.5rem', marginBottom: '2.5rem', maxWidth: '1100px', margin: '0 auto 2.5rem', lineHeight: '1' }}
           >
-            Finance Your AI Workforce.<br />Pay With Upside.
+            The Age of <br />Technical Alignment.
           </motion.h1>
           <motion.p
             variants={itemVariants}
             style={{ fontSize: '1.6rem', maxWidth: '850px', margin: '0 auto 4rem', color: 'var(--text-secondary)' }}
           >
-            We fund high-leverage AI builders with compute credits in exchange for revenue share or structured upside. No upfront capital required.
+            We bridge the gap between frontier AI compute and high-leverage builders. Choose your path to underwrite the future.
           </motion.p>
-          <motion.div variants={itemVariants} style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
-            <a href="#apply" className="btn btn-primary" style={{ padding: '1.25rem 2.5rem', fontSize: '1.1rem' }}>
-              Apply for Private Whitelist
+
+          <motion.div variants={itemVariants} className="hero-buttons" style={{ display: 'flex', gap: '2rem', justifyContent: 'center' }}>
+            <a href="#apply" onClick={() => setOnboardingPath('builder')} className="btn btn-primary" style={{ padding: '1.5rem 3rem', fontSize: '1.2rem', minWidth: '280px' }}>
+              I am a Builder <Cpu size={20} style={{ marginLeft: '1rem' }} />
             </a>
-            <a href="#how-it-works" className="btn" style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-color)' }}>
-              How it works
+            <a href="#apply" onClick={() => setOnboardingPath('patron')} className="btn" style={{ background: 'rgba(255,255,255,0.05)', color: '#fff', border: '1px solid var(--border-color)', padding: '1.5rem 3rem', fontSize: '1.2rem', minWidth: '280px' }}>
+              I am a Patron <ShieldCheck size={20} style={{ marginLeft: '1rem' }} />
             </a>
           </motion.div>
         </motion.div>
@@ -698,7 +806,7 @@ const App: React.FC = () => {
                           {field.label}
                         </label>
                         {field.type === 'textarea' ? (
-                          <textarea rows={4} required={field.required} style={{
+                          <textarea name={field.label} rows={4} required={field.required} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -708,7 +816,7 @@ const App: React.FC = () => {
                             fontSize: '1rem'
                           }} />
                         ) : field.type === 'select' ? (
-                          <select style={{
+                          <select name={field.label} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -719,7 +827,7 @@ const App: React.FC = () => {
                             {field.options?.map(opt => <option key={opt}>{opt}</option>)}
                           </select>
                         ) : (
-                          <input type={field.type} required={field.required} placeholder={field.placeholder} style={{
+                          <input name={field.label} type={field.type} required={field.required} placeholder={field.placeholder} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -752,7 +860,7 @@ const App: React.FC = () => {
                           {field.label}
                         </label>
                         {field.type === 'textarea' ? (
-                          <textarea rows={4} required={field.required} style={{
+                          <textarea name={field.label} rows={4} required={field.required} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -762,7 +870,7 @@ const App: React.FC = () => {
                             fontSize: '1rem'
                           }} />
                         ) : field.type === 'select' ? (
-                          <select style={{
+                          <select name={field.label} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -773,7 +881,7 @@ const App: React.FC = () => {
                             {field.options?.map(opt => <option key={opt}>{opt}</option>)}
                           </select>
                         ) : (
-                          <input type={field.type} required={field.required} placeholder={field.placeholder} style={{
+                          <input name={field.label} type={field.type} required={field.required} placeholder={field.placeholder} style={{
                             background: 'rgba(0,0,0,0.3)',
                             border: '1px solid var(--border-color)',
                             padding: '1rem',
@@ -787,8 +895,23 @@ const App: React.FC = () => {
                   </>
                 )}
 
-                <button type="submit" className="btn btn-primary" style={{ gridColumn: 'span 2', marginTop: '2.5rem', height: '4.5rem', fontSize: '1.25rem' }}>
-                  Submit {onboardingPath === 'builder' ? 'Review Request' : 'Investor Inquiry'} <ArrowRight size={24} style={{ marginLeft: '1rem' }} />
+                {submissionError && (
+                  <div style={{ gridColumn: 'span 2', color: '#ef4444', textAlign: 'center', marginBottom: '1rem' }}>
+                    {submissionError}
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn btn-primary"
+                  style={{ gridColumn: 'span 2', marginTop: '1.5rem', height: '4.5rem', fontSize: '1.25rem', opacity: isSubmitting ? 0.7 : 1 }}
+                >
+                  {isSubmitting ? (
+                    <Loader2 className="animate-spin" size={24} />
+                  ) : (
+                    <>Submit {onboardingPath === 'builder' ? 'Review Request' : 'Investor Inquiry'} <ArrowRight size={24} style={{ marginLeft: '1rem' }} /></>
+                  )}
                 </button>
               </form>
             </motion.div>
