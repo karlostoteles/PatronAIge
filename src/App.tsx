@@ -164,6 +164,26 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        <section className="mb-20 reveal">
+          <div className="glass-card p-8 max-w-2xl mx-auto text-center">
+            <h2 className="text-cyan-400 mb-4">Get in Touch</h2>
+            <p className="text-gray-300 mb-6">
+              Interested in compute financing, partnership, or technical collaboration?
+              Reach out directly:
+            </p>
+            <a
+              href="mailto:carlosdelafiguera@gmail.com"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500 text-white font-medium hover:from-cyan-400 hover:to-indigo-400 transition-all shadow-lg shadow-cyan-500/20"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 6L12 13 2 6"/>
+              </svg>
+              carlosdelafiguera@gmail.com
+            </a>
+          </div>
+        </section>
+
         <footer className="text-center text-gray-600 text-sm pb-10">
           <p>Built on Provable Infrastructure • TEE Receipts • Starknet L2 • ZK Research</p>
         </footer>
