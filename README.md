@@ -59,4 +59,4 @@ This project is optimized for deployment on [Vercel](https://vercel.com).
 *The included `vercel.json` ensures smooth SPA routing.*
 
 ---
-© 2026 PatronAIge. High-Signal Compute Financing.
+© 2026 PatronAIge. High-Signal Compute Financing. By RUFi Studio
