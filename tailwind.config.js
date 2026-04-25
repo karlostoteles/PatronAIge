@@ -4,21 +4,35 @@ export default {
   theme: {
     extend: {
       colors: {
-        cyan: { 300: '#67e8f9', 400: '#22d3ee', 500: '#06b6d4' },
-        indigo: { 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1' },
-        purple: { 300: '#d8b4fe', 400: '#c084fc', 500: '#a855f7' },
+        marble: {
+          base: '#f8f7f4',
+          warm: '#f0ede8',
+          grain: 'rgba(120, 115, 105, 0.04)',
+        },
+        stone: {
+          dark: '#2d2926',
+          accent: '#8b735b',
+          medium: '#5a5550',
+          light: '#9a9590',
+        },
+        gold: {
+          warm: '#c9a87c',
+          muted: '#d4cfc7',
+          deep: '#6b5d4f',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
-        'gradient-x': 'gradient-x 8s ease infinite',
+        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards',
       },
       keyframes: {
-        'gradient-x': {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
+        fadeInUp: {
+          '0%': { opacity: 0, transform: 'translateY(16px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
         },
       },
     },

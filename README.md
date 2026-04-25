@@ -139,4 +139,11 @@ The system aligns incentives: providers have skin in the game, challengers are r
 
 ---
 
+## Contact
+
+**Carlos de la Figuera** — Founder  
+📧 carlosdelafiguera@gmail.com
+
+---
+
 *Patronaige — where compute meets capital, provably.*
