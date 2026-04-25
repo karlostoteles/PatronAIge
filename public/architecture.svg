@@ -1,31 +1,64 @@
-<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" style="background:transparent; font-family: 'Inter', system-ui, sans-serif;">
-  <rect x="100" y="50" width="1000" height="600" rx="24" fill="rgba(0,0,0,0.3)" stroke="rgba(255,107,0,0.3)" stroke-width="1"/>
-  <rect x="100" y="50" width="1000" height="600" rx="24" fill="rgba(0,255,255,0.03)"/>
-  <text x="600" y="100" text-anchor="middle" fill="#fff" font-size="32" font-weight="700">Patronaige Architecture</text>
-  <g transform="translate(100,160)">
-    <rect width="200" height="120" rx="12" fill="#1a1a1a" stroke="#ff6b00" stroke-width="2"/>
-    <text x="100" y="40" text-anchor="middle" fill="#ff6b00" font-size="16" font-weight="600">Provider Daemon</text>
-    <text x="100" y="70" text-anchor="middle" fill="#888" font-size="11">provider/daemon.ts</text>
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="#0a0a0f" opacity="0"/>
+  <g transform="translate(80, 160)">
+    <rect x="0" y="0" width="160" height="100" rx="16" fill="rgba(20,20,30,0.6)" stroke="url(#g1)" stroke-width="2"/>
+    <text x="80" y="38" text-anchor="middle" fill="#e5e7eb" font-family="Inter, sans-serif" font-size="16" font-weight="600">Provider</text>
+    <text x="80" y="58" text-anchor="middle" fill="#22d3ee" font-family="JetBrains Mono, monospace" font-size="12">ed25519 keypair</text>
+    <text x="80" y="82" text-anchor="middle" fill="#9ca3af" font-family="Inter, sans-serif" font-size="11">TEE enclave (Nitro/SGX)</text>
   </g>
-  <g transform="translate(420,160)">
-    <rect width="200" height="120" rx="12" fill="#1a1a1a" stroke="#00d4ff" stroke-width="2"/>
-    <text x="100" y="40" text-anchor="middle" fill="#00d4ff" font-size="16" font-weight="600">Verification Contract</text>
-    <text x="100" y="70" text-anchor="middle" fill="#888" font-size="11">contracts/Verification.cairo</text>
+  <g transform="translate(250, 210)">
+    <path d="M0 0 L80 0" stroke="url(#lineGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="40" y="-8" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="10">CBOR signed receipt</text>
   </g>
-  <g transform="translate(720,160)">
-    <rect width="200" height="120" rx="12" fill="#1a1a1a" stroke="#10b981" stroke-width="2"/>
-    <text x="100" y="40" text-anchor="middle" fill="#10b981" font-size="16" font-weight="600">Starknet L2</text>
-    <text x="100" y="70" text-anchor="middle" fill="#888" font-size="11">Immutable audit log</text>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="url(#lineGrad)"/>
+    </marker>
+  </defs>
+  <g transform="translate(520, 160)">
+    <rect x="0" y="0" width="200" height="100" rx="16" fill="rgba(20,20,30,0.6)" stroke="url(#g1)" stroke-width="2"/>
+    <text x="100" y="38" text-anchor="middle" fill="#e5e7eb" font-family="Inter, sans-serif" font-size="16" font-weight="600">Verification Contract</text>
+    <text x="100" y="58" text-anchor="middle" fill="#818cf8" font-family="JetBrains Mono, monospace" font-size="12">Cairo — Starknet Sepolia</text>
+    <text x="100" y="82" text-anchor="middle" fill="#9ca3af" font-family="Inter, sans-serif" font-size="11">anchor receipt_digest</text>
   </g>
-  <g transform="translate(100,340)">
-    <rect width="200" height="140" rx="12" fill="#1a1a1a" stroke="#f59e0b" stroke-width="2"/>
-    <text x="100" y="35" text-anchor="middle" fill="#f59e0b" font-size="16" font-weight="600">Receipt Format</text>
-    <text x="100" y="65" text-anchor="middle" fill="#888" font-size="11">specs/RECEIPT-SPEC.md</text>
+  <g transform="translate(380, 210)">
+    <path d="M0 0 L120 0" stroke="url(#lineGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="60" y="-8" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="10">on-chain dispute log</text>
   </g>
-  <g transform="translate(340,340)">
-    <rect width="200" height="140" rx="12" fill="#1a1a1a" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="100" y="35" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="600">Validator</text>
-    <text x="100" y="65" text-anchor="middle" fill="#888" font-size="11">provider/validator.ts</text>
+  <g transform="translate(520, 300)">
+    <rect x="0" y="0" width="200" height="90" rx="16" fill="rgba(20,20,30,0.6)" stroke="#22d3ee" stroke-width="2" filter="url(#glow)"/>
+    <text x="100" y="32" text-anchor="middle" fill="#22d3ee" font-family="Inter, sans-serif" font-size="14" font-weight="600">Starknet L2</text>
+    <text x="100" y="52" text-anchor="middle" fill="#9ca3af" font-family="Inter, sans-serif" font-size="11">Optimism / Arbitrum alternative</text>
+    <text x="100" y="76" text-anchor="middle" fill="#818cf8" font-family="JetBrains Mono, monospace" font-size="12">tx_hash: 0x3a7f...</text>
   </g>
-  <text x="600" y="680" text-anchor="middle" fill="#666" font-size="12">All code open source: github.com/spiritclawd/patronaige</text>
+  <g transform="translate(620, 250)">
+    <path d="M0 0 L0 50" stroke="url(#lineGrad)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <text x="-12" y="25" text-anchor="middle" fill="#9ca3af" font-family="JetBrains Mono, monospace" font-size="10">event</text>
+  </g>
+  <g transform="translate(60, 300)">
+    <rect x="0" y="0" width="140" height="80" rx="12" fill="rgba(20,20,30,0.6)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="20" y="25" fill="#f3f4f6" font-family="JetBrains Mono, monospace" font-size="10">specs/</text>
+    <text x="30" y="42" fill="#d1d5db" font-family="Inter, sans-serif" font-size="11">• RECEIPT-SPEC.md</text>
+    <text x="30" y="58" fill="#d1d5db" font-family="Inter, sans-serif" font-size="11">• CBOR-SPEC.md</text>
+    <text x="30" y="74" fill="#d1d5db" font-family="Inter, sans-serif" font-size="11">• receipt.schema.json</text>
+  </g>
+  <g transform="translate(140, 260)">
+    <path d="M0 0 L0 40" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="-10" y="20" text-anchor="middle" fill="#6b7280" font-family="Inter, sans-serif" font-size="9">source</text>
+  </g>
 </svg>
