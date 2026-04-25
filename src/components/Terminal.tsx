@@ -5,23 +5,23 @@ const Terminal: React.FC = () => {
   const currentLineIdx = displayedLines.length
 
   const lines = [
-    { text: 'PATRON_TERMINAL_v1.0.4', cls: 'text-cyan-400' },
-    { text: '', cls: '' },
-    { text: 'CONNECTED_NODES: 14', cls: 'text-gray-300' },
-    { text: '', cls: '' },
-    { text: 'TOTAL_INFERENCE_STREAM', cls: 'text-gray-500' },
-    { text: '1,240,582 TOKENS/S', cls: 'text-green-400' },
-    { text: '', cls: '' },
-    { text: 'AVG_PORTFOLIO_ALIGNMENT', cls: 'text-gray-500' },
-    { text: '24.5% +0.4%', cls: 'text-yellow-400' },
-    { text: '', cls: '' },
-    { text: 'LIVE_UNDERWRITING_FEED', cls: 'text-gray-500' },
-    { text: '[TX-4091] NeuralFlow DEPLOYED H100 x 8', cls: 'text-gray-300' },
-    { text: '[TX-4092] LlamaScale SCALING A100 x 16', cls: 'text-gray-300' },
-    { text: '[TX-4093] VisionPro UNDERWRITING H100 x 4', cls: 'text-gray-300' },
-    { text: '', cls: '' },
-    { text: '> SYSTEM_STATUS: ALL_CLUSTERS_NOMINAL', cls: 'text-green-400' },
-    { text: '> READY_FOR_PATRON_ALLOCATION', cls: 'text-cyan-400 font-bold' },
+    { text: 'PATRON_TERMINAL_v1.0.4' },
+    { text: '' },
+    { text: 'CONNECTED_NODES: 14' },
+    { text: '' },
+    { text: 'TOTAL_INFERENCE_STREAM' },
+    { text: '1,240,582 TOKENS/S' },
+    { text: '' },
+    { text: 'AVG_PORTFOLIO_ALIGNMENT' },
+    { text: '24.5% +0.4%' },
+    { text: '' },
+    { text: 'LIVE_UNDERWRITING_FEED' },
+    { text: '[TX-4091] NeuralFlow DEPLOYED H100 x 8' },
+    { text: '[TX-4092] LlamaScale SCALING A100 x 16' },
+    { text: '[TX-4093] VisionPro UNDERWRITING H100 x 4' },
+    { text: '' },
+    { text: '> SYSTEM_STATUS: ALL_CLUSTERS_NOMINAL' },
+    { text: '> READY_FOR_PATRON_ALLOCATION' },
   ]
 
   useEffect(() => {
@@ -38,17 +38,17 @@ const Terminal: React.FC = () => {
         <span className="terminal-dot" />
         <span className="terminal-dot" />
         <span className="terminal-dot" />
-        <span className="ml-2 text-xs text-gray-500 font-mono">patron — zsh — 80×24</span>
+        <span className="ml-2 text-[10px] text-[#9a9590] font-mono">patron — zsh — 80×24</span>
       </div>
-      <div className="terminal-body">
+      <div className="terminal-body font-mono text-[#2d2926]">
         {displayedLines.map((line, i) => (
-          <p key={i} className="terminal-line">
+          <p key={i} className="leading-relaxed">
             {line === '' ? '\u00A0' : line}
           </p>
         ))}
         {currentLineIdx < lines.length && (
-          <div className="terminal-input-line">
-            <span className="terminal-prompt">{'\u25B6'}</span>
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-[#8b735b]">{'\u25B6'}</span>
             <span className="terminal-cursor" />
           </div>
         )}
