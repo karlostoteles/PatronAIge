@@ -19,7 +19,7 @@ const App: React.FC = () => {
         {/* Hero */}
         <header className="text-center mb-20 reveal">
           <div className="inline-block mb-4 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#8b735b] border border-[#d4cfc7] rounded-full bg-[#f8f7f4]/60">
-            Inference Marketplace for Startups
+            Startup Inference Access
           </div>
           <h1 className="mb-6 text-[#2d2926]">
             Patronaige
